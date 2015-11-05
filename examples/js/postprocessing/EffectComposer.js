@@ -8,10 +8,8 @@ THREE.EffectComposer = function ( renderer, renderTarget ) {
 
 	if ( renderTarget === undefined ) {
 
-		var pixelRatio = renderer.getPixelRatio();
-
-		var width  = Math.floor( renderer.context.canvas.width  / pixelRatio ) || 1;
-		var height = Math.floor( renderer.context.canvas.height / pixelRatio ) || 1;
+		var width  = Math.floor( renderer.context.canvas.width ) || 1;
+		var height = Math.floor( renderer.context.canvas.height ) || 1;
 		var parameters = { minFilter: THREE.LinearFilter, magFilter: THREE.LinearFilter, format: THREE.RGBFormat, stencilBuffer: false };
 
 		renderTarget = new THREE.WebGLRenderTarget( width, height, parameters );
@@ -110,10 +108,8 @@ THREE.EffectComposer.prototype = {
 
 			renderTarget = this.renderTarget1.clone();
 
-			var pixelRatio = this.renderer.getPixelRatio();
-
-			renderTarget.width  = Math.floor( this.renderer.context.canvas.width  / pixelRatio );
-			renderTarget.height = Math.floor( this.renderer.context.canvas.height / pixelRatio );
+			renderTarget.width  = Math.floor( this.renderer.context.canvas.width );
+			renderTarget.height = Math.floor( this.renderer.context.canvas.height );
 
 		}
 
